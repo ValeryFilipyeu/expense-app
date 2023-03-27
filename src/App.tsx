@@ -1,11 +1,11 @@
 import React from "react";
 
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses";
 
 import "./App.css";
 
 function App() {
-  return <ExpenseItem />;
+  return <Expenses />;
 }
 
 export default App;
