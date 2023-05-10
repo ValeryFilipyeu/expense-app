@@ -9,3 +9,18 @@ export enum ExpenseYearFilter {
 	curr = '2023',
 	beforeLast = '2021',
 }
+
+export enum Months {
+	jan = 'Jan',
+	feb = 'Feb',
+	mar = 'Mar',
+	apr = 'Apr',
+	may = 'May',
+	jun = 'Jun',
+	jul = 'July',
+	aug = 'Aug',
+	sep = 'Sep',
+	oct = 'Oct',
+	nov = 'Nov',
+	dec = 'Dec',
+}

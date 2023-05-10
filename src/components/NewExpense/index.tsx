@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import ExpenseForm from '../ExpenseForm';
+import ExpenseForm from './ExpenseForm';
 
 import { type Expense } from '../../types';
 
@@ -11,17 +11,36 @@ interface NewExpenseProps {
 }
 
 const NewExpense: React.FC<NewExpenseProps> = ({ onAddExpense }) => {
+	const [isEditing, setIsEditing] = useState(false);
+
 	const saveExpenseDataHandler = (enteredExpenseData): void => {
 		const expenseData = {
 			...enteredExpenseData,
 			id: Math.random().toString(),
 		};
 		onAddExpense(expenseData);
+		setIsEditing(false);
+	};
+
+	const startEditingHandler = (): void => {
+		setIsEditing(true);
+	};
+
+	const stopEditingHandler = (): void => {
+		setIsEditing(false);
 	};
 
 	return (
 		<div className="new-expense">
-			<ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+			{!isEditing && (
+				<button onClick={startEditingHandler}>Add New Expense</button>
+			)}
+			{isEditing && (
+				<ExpenseForm
+					onSaveExpenseData={saveExpenseDataHandler}
+					onCancel={stopEditingHandler}
+				/>
+			)}
 		</div>
 	);
 };

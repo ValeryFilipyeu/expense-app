@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ExpenseYearFilter } from '../../constants';
+import { ExpenseYearFilter } from '../../../constants';
 
 import './index.css';
 
